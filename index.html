@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio of Ahrar Ahmad - B.Tech CSE Student, Web Developer, and DevOps Enthusiast">
+<title>Ahrar Ahmad - Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          primary: '#3b82f6',
+        }
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full bg-white dark:bg-gray-800 shadow-md z-10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+<h1 class="text-xl font-bold">Ahrar Ahmad</h1>
+<button class="mobile-menu-button block md:hidden">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+</svg>
+</button>
+<div class="space-x-4 hidden md:flex">
+<a href="#home" class="hover:text-blue-500">Home</a>
+<a href="#about" class="hover:text-blue-500">About</a>
+<a href="#skills" class="hover:text-blue-500">Skills</a>
+<a href="#experience" class="hover:text-blue-500">Experience</a>
+<a href="#projects" class="hover:text-blue-500">Projects</a>
+<a href="#education" class="hover:text-blue-500">Education</a>
+<a href="#contact" class="hover:text-blue-500">Contact</a>
+<div class="flex items-center">
+<button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700" aria-label="Toggle dark mode">
+<span class="dark:hidden" aria-hidden="true">🌙</span>
+<span class="hidden dark:inline" aria-hidden="true">☀️</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+<a href="#home" class="block py-2 px-4 hover:text-blue-500">Home</a>
+<a href="#about" class="block py-2 px-4 hover:text-blue-500">About</a>
+<a href="#skills" class="block py-2 px-4 hover:text-blue-500">Skills</a>
+<a href="#experience" class="block py-2 px-4 hover:text-blue-500">Experience</a>
+<a href="#projects" class="block py-2 px-4 hover:text-blue-500">Projects</a>
+<a href="#education" class="block py-2 px-4 hover:text-blue-500">Education</a>
+<a href="#contact" class="block py-2 px-4 hover:text-blue-500">Contact</a>
+<div class="flex items-center justify-center py-2 px-4">
+<button id="mobile-theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700" aria-label="Toggle dark mode">
+<span class="dark:hidden" aria-hidden="true">🌙</span>
+<span class="hidden dark:inline" aria-hidden="true">☀️</span>
+</button>
+</div>
+</div>
+
+<!-- Home Section -->
+<section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+<div class="text-center fade-in">
+<h1 class="text-4xl md:text-6xl font-bold mb-4">Ahrar Ahmad</h1>
+<p class="text-xl md:text-2xl">B.Tech CSE Student | Software Engineer | Project Management | DevOps Enthusiast</p>
+</div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold mb-8 text-center">About Me</h2>
+<p class="text-lg fade-in">
+I'm a driven B.Tech Computer Science Engineering student with hands-on experience in DevOps, web development, blockchain, and project coordination. I specialize in building production-ready applications, managing hosting infrastructure, and leading agile teams to deliver scalable solutions. Passionate about technology and innovation, I'm eager to contribute to impactful projects.
+</p>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="py-16 bg-gray-200 dark:bg-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold mb-8 text-center">Technical Skills</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="fade-in">
+<h3 class="text-xl font-semibold">Programming Languages</h3>
+<p>Java, Python, JavaScript, HTML, CSS, Solidity</p>
+</div>
+<div class="fade-in">
+<h3 class="text-xl font-semibold">Frameworks & Libraries</h3>
+<p>React.js, Node.js, Tailwind CSS, Spring Boot</p>
+</div>
+<div class="fade-in">
+<h3 class="text-xl font-semibold">Tools & Platforms</h3>
+<p>Eclipse IDE, VS Code, Git, GitHub, Firebase, MongoDB, GoDaddy, Slack, Trello, Postman, MS Office</p>
+</div>
+<div class="fade-in">
+<h3 class="text-xl font-semibold">Cloud & DevOps</h3>
+<p>AWS, Azure, Hosting & Domain Management, CI/CD</p>
+</div>
+<div class="fade-in">
+<h3 class="text-xl font-semibold">Project Management</h3>
+<p>Agile Methodology, Sprint Planning, Task Management, Documentation</p>
+</div>
+<div class="fade-in">
+<h3 class="text-xl font-semibold">Soft Skills</h3>
+<p>Leadership, Communication, Strategic Thinking, Technical Writing</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold mb-8 text-center">Professional Experience</h2>
+<div class="fade-in">
+<h3 class="text-xl font-semibold">Namifyx (Startup) — Platform Engineer | Web Developer | Project Coordinator | Software Engineer</h3>
+<p class="text-gray-600 dark:text-gray-400">May 2025 - Present | Noida</p>
+<ul class="list-disc pl-6 mt-2">
+<li>Developed live web applications using React.js, Node.js, and Tailwind CSS.</li>
+<li>Managed domain setup and hosting using Hostinger and GoDaddy.</li>
+<li>Prepared technical documents and white papers for stakeholders.</li>
+<li>Led project planning, sprint activities, and task tracking with Slack and Trello.</li>
+<li>Evaluated cloud services on AWS and Azure.</li>
+<li>Trained interns in Git workflows and Agile practices.</li>
+<li>Collaborated on blockchain Layer 1 and Layer 2 development.</li>
+<li>Contributed to pre-sale smart contract development.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-16 bg-gray-200 dark:bg-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold mb-8 text-center">Projects</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md fade-in">
+<h3 class="text-xl font-semibold">Crypto Exchange MVP (Ongoing)</h3>
+<p>Designed dashboard components and user interface with HTML, CSS, and researched blockchain integration.</p>
+</div>
+<div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md fade-in">
+<h3 class="text-xl font-semibold">Portfolio Website</h3>
+<p>Created a personal website using HTML, CSS, and JavaScript to showcase projects and skills.</p>
+</div>
+<div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md fade-in">
+<h3 class="text-xl font-semibold">Library Management System</h3>
+<p>Developed a Java console-based application with CRUD operations and OOP principles.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold mb-8 text-center">Education</h2>
+<div class="space-y-6">
+<div class="fade-in">
+<h3 class="text-xl font-semibold">B.Tech in Computer Science Engineering</h3>
+<p class="text-gray-600 dark:text-gray-400">IILM University, Greater Noida | 2022 - 2026</p>
+</div>
+<div class="fade-in">
+<h3 class="text-xl font-semibold">Senior Secondary (CBSE)</h3>
+<p class="text-gray-600 dark:text-gray-400">St. Joseph School, Nawada | 2022</p>
+</div>
+<div class="fade-in">
+<h3 class="text-xl font-semibold">Secondary (CBSE)</h3>
+<p class="text-gray-600 dark:text-gray-400">MES Indian School, Doha | 2020</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-16 bg-gray-200 dark:bg-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold mb-8 text-center">Contact Me</h2>
+<div class="fade-in">
+<p class="text-lg mb-4">Email: <a href="mailto:ahharahmad108@gmail.com" class="text-blue-500">ahharahmad108@gmail.com</a></p>
+<p class="text-lg mb-4">Phone: +91 8235155788</p>
+<p class="text-lg mb-4">Address: CGEWHO Kendriya Vihar, P4, Greater Noida, 201310</p>
+<form id="contact-form" class="space-y-4 max-w-md mx-auto">
+<div>
+<label for="name" class="block text-sm font-medium">Name</label>
+<input type="text" id="name" class="w-full p-2 border rounded-md dark:bg-gray-700" required>
+</div>
+<div>
+<label for="email" class="block text-sm font-medium">Email</label>
+<input type="email" id="email" class="w-full p-2 border rounded-md dark:bg-gray-700" required>
+</div>
+<div>
+<label for="message" class="block text-sm font-medium">Message</label>
+<textarea id="message" class="w-full p-2 border rounded-md dark:bg-gray-700" rows="4" required></textarea>
+</div>
+<button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">Send Message</button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-4 text-center">
+<p>© 2025 Ahrar Ahmad. All rights reserved.</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
