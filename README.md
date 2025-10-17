@@ -61,7 +61,7 @@ docker build -t portfolio-website .
 
 2. Run the container:
 ```bash
-docker run -d --name portfolio-container -p 3000:80 portfolio-website
+docker run -d --name portfolio-container -p 3000:8080 portfolio-website
 ```
 
 3. Access the website at `http://localhost:3000`

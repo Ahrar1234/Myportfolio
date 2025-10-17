@@ -1,98 +1,57 @@
+
 pipeline {
     agent any
-    
+
     environment {
-        IMAGE_NAME = "portfolio-website"
-        IMAGE_TAG = "${BUILD_NUMBER}"
-        CONTAINER_NAME = "portfolio-container"
+        VERCEL_TOKEN = credentials('VERCEL_TOKEN')
     }
-    
+
     stages {
         stage('Checkout') {
             steps {
-                echo 'Checking out code from GitHub...'
-                checkout scm
+                echo 'Cloning repository...'
+                git branch: 'main', url: 'https://github.com/Ahrar1234/Myportfolio.git'
             }
         }
-        
+
         stage('Build Docker Image') {
             steps {
                 echo 'Building Docker image...'
-                script {
-                    // Build the Docker image
-                    sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
-                    sh "docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${IMAGE_NAME}:latest"
-                }
+                sh 'docker build -t my-static-site .'
             }
         }
-        
-        stage('Test') {
+
+        stage('Test Docker Image') {
             steps {
-                echo 'Running tests...'
-                script {
-                    // Test if the image can run successfully
-                    sh "docker run --rm ${IMAGE_NAME}:${IMAGE_TAG} nginx -t"
-                }
+                echo 'Running Docker container for test...'
+                sh 'docker run -d -p 8080:8080 --name test-site my-static-site'
+                sh 'sleep 5'
+                sh 'curl -f http://localhost:8080 || exit 1'
+                sh 'docker stop test-site && docker rm test-site'
             }
         }
-        
-        stage('Stop Previous Container') {
+
+        stage('Deploy to Vercel') {
             steps {
-                echo 'Stopping and removing previous container...'
-                script {
-                    // Stop and remove existing container if running
-                    sh "docker stop ${CONTAINER_NAME} || true"
-                    sh "docker rm ${CONTAINER_NAME} || true"
-                }
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                echo 'Deploying new container...'
-                script {
-                    // Run the new container
-                    sh "docker run -d --name ${CONTAINER_NAME} -p 3000:80 ${IMAGE_NAME}:latest"
-                }
-            }
-        }
-        
-        stage('Verify Deployment') {
-            steps {
-                echo 'Verifying deployment...'
-                script {
-                    // Check if container is running
-                    sh "docker ps | grep ${CONTAINER_NAME}"
-                    
-                    // Wait a bit for container to start
-                    sh "sleep 10"
-                    
-                    // Test if website is accessible
-                    sh "curl -f http://localhost:3000 || exit 1"
-                }
+                echo 'Deploying to Vercel...'
+                sh '''
+                    npm install -g vercel
+                    vercel --token=$VERCEL_TOKEN --prod --confirm
+                '''
             }
         }
     }
-    
+
     post {
         always {
-            echo 'Cleaning up old images...'
-            script {
-                // Clean up old images (keep last 3 builds)
-                sh """
-                    docker images ${IMAGE_NAME} --format 'table {{.Tag}}' | \
-                    grep -E '^[0-9]+\$' | \
-                    sort -rn | \
-                    tail -n +4 | \
-                    xargs -I {} docker rmi ${IMAGE_NAME}:{} || true
-                """
-            }
+            sh 'docker system prune -f || true'
         }
         success {
-            echo '✅ Pipeline succeeded! Website deployed at http://localhost:3000'
+            echo '✅ Deployment successful!'
         }
         failure {
-            echo '❌ Pipeline failed! Check logs for details.'
+            echo '❌ Deployment failed!'
+            sh 'docker stop test-site && docker rm test-site || true'
         }
     }
 }
